@@ -1,0 +1,662 @@
+@import "syntax-variables";
+
+:host, atom-text-editor, atom-text-editor::shadow {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+    color: @syntax-gutter-text-color;
+
+    .line-number {
+      &.cursor-line {
+        background-color: @syntax-gutter-background-color-selected;
+        color: @syntax-gutter-text-color-selected;
+      }
+
+      &.cursor-line-no-selection {
+        color: @syntax-gutter-text-color-selected;
+      }
+    }
+  }
+
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: @light-gray;
+  }
+
+  .invisible {
+    color: @syntax-text-color;
+  }
+
+  .cursor {
+    color: @syntax-cursor-color;
+  }
+
+  .line .rspec {
+    background-color: inherit;
+  }
+
+  .selection .region {
+    background-color: @syntax-selection-color;
+  }
+}
+
+atom-text-editor .search-results .marker .region,
+atom-text-editor::shadow .search-results .marker .region {
+  background-color: transparent;
+  border: 1px solid @syntax-result-marker-color;
+}
+
+atom-text-editor .search-results .marker.current-result .region,
+atom-text-editor::shadow .search-results .marker.current-result .region {
+  border: 1px solid @syntax-result-marker-color-selected;
+}
+
+.comment {
+  color: lighten(@background, 30%);
+  font-style: italic;
+
+  .punctuation {
+    color: lighten(@background, 30%);
+  }
+}
+
+.entity {
+  &.name.type {
+    color: @blue-sea;
+  }
+
+  &.other.inherited-class {
+    color: darken(@blue-sea, 10%);
+    font-style: italic;
+  }
+}
+
+.keyword {
+  color: @magenta;
+
+  &.control {
+    color: @magenta;
+  }
+
+  &.operator {
+    color: @syntax-text-color;
+
+    &.logical {
+      color: @blue;
+    }
+
+    &.assignment, &.comparison, &.arithmetic {
+      color: @blue;
+    }
+  }
+
+  &.other.special-method {
+    color: @dark-orange;
+  }
+
+  &.other.unit {
+    color: @orange;
+  }
+}
+
+.storage {
+  color: @blue-sea;
+}
+
+.constant {
+  color: @green;
+
+  &.character.escape {
+    color: @yellow;
+  }
+
+  &.numeric {
+    color: @yellow;
+  }
+
+  &.other.color {
+    color: @cyan;
+  }
+
+  &.other.symbol {
+    color: @red;
+
+    .punctuation {
+      color: @red;
+    }
+  }
+
+  &.nil, &.boolean {
+    color: @blue;
+  }
+}
+
+.variable {
+  color: @yellow-light;
+
+  &.interpolation {
+    color: darken(@red, 10%);
+  }
+
+  &.parameter.function {
+    color: @blue;
+    font-style: italic;
+  }
+
+  &.instance {
+    color: @yellow-light;
+    .punctuation {
+      color: @yellow-light;
+    }
+  }
+}
+
+.invalid.illegal {
+  background-color: @red;
+  color: @syntax-background-color;
+}
+
+.string {
+  color: @orange;
+
+  &.regexp {
+    color: @red;
+
+    .source.ruby.embedded {
+      color: @red;
+    }
+
+    .punctuation.definition.string {
+      color: @red;
+    }
+  }
+
+  .embedded .source.ruby {
+    color: white;
+  }
+
+  &.other.link {
+    color: @red;
+  }
+
+  /* backtick */
+  &.interpolated.ruby:not(.quoted):not(.regexp) {
+    color: @light-gray;
+
+    & > .punctuation {
+      color: @light-gray;
+    }
+
+    .embedded.ruby {
+      & > .punctuation {
+        color: white;
+      }
+    }
+  }
+}
+
+.punctuation {
+  &.definition {
+    &.string {
+      color: @orange;
+    }
+
+    &.parameters, &.array {
+      color: @syntax-text-color;
+    }
+
+    &.heading, &.identity {
+      color: @blue;
+    }
+
+    &.bold {
+      color: @light-orange;
+      font-style: bold;
+    }
+
+    &.italic {
+      color: @blue-sea;
+      font-style: italic;
+    }
+  }
+
+  &.section.embedded {
+    color: white;
+  }
+
+  &.key-value {
+    color: @blue;
+  }
+
+  &.separator {
+    &.other {
+      color: @blue;
+    }
+
+    &.variable {
+      color: white;
+    }
+  }
+}
+
+.support {
+  &.class {
+    color: @yellow-light;
+  }
+
+  &.function  {
+    color: @cyan;
+
+    &.any-method {
+      color: @blue;
+    }
+  }
+}
+
+.entity {
+  &.name.function {
+    color: @light-orange;
+  }
+
+  &.name.class, &.name.type.class {
+    color: @blue-sea;
+  }
+
+  &.name.section {
+    color: @blue;
+  }
+
+  &.name.tag {
+    color: @red;
+    text-decoration: underline;
+  }
+
+  &.other.attribute-name {
+    color: @blue-sea;
+
+    &.id {
+      color: @blue;
+      font-weight: bold;
+    }
+  }
+}
+
+.meta {
+  &.class {
+    color: @light-orange;
+  }
+
+  &.link {
+    color: @orange;
+  }
+
+  &.require {
+    color: white;
+  }
+
+  &.selector {
+    color: @blue-sea;
+  }
+
+  &.separator {
+    background-color: @gray;
+    color: @syntax-text-color;
+  }
+
+  &.rspec.behaviour, &.rspec.rspec-example {
+    color: @yellow-light;
+
+    .entity.name {
+      color: @dark-green;
+    }
+  }
+}
+
+.none {
+  color: @syntax-text-color;
+}
+
+.markup {
+  &.bold {
+    color: @orange;
+    font-style: bold;
+  }
+
+  &.changed {
+    color: @blue-sea;
+  }
+
+  &.deleted {
+    color: @red;
+  }
+
+  &.italic {
+    color: @blue-sea;
+    font-style: italic;
+  }
+
+  &.heading .punctuation.definition.heading {
+    color: @blue;
+  }
+
+  &.inserted {
+    color: @green;
+  }
+
+  &.list {
+    color: @red;
+  }
+
+  &.quote {
+    color: @orange;
+  }
+
+  &.raw.inline {
+    color: @green;
+  }
+}
+
+atom-text-editor[mini] .scroll-view,
+atom-text-editor::shadow[mini] .scroll-view {
+  padding-left: 1px;
+}
+
+/******* Diff *******/
+.source.diff {
+  float: left;
+  width: 100%;
+
+  .markup {
+    display: block;
+
+    &.deleted {
+      color: white;
+      background-color: fade(@diff-red, 50%);
+    }
+
+    &.inserted {
+      color: white;
+      background-color: fade(@dark-green, 50%);
+    }
+  }
+
+  .header {
+    display: block;
+    background-color: fade(@diff-blue, 50%);
+
+    &.from-file .punctuation {
+      color: darken(@red, 20%);
+    }
+
+    &.to-file .punctuation {
+      color: @dark-green;
+    }
+  }
+
+  .index {
+    display: block;
+    background-color: fade(@diff-header, 50%);
+  }
+
+  .range.unified {
+    background-color: fade(@diff-header, 50%);
+
+    .punctuation {
+      font-weight: bold;
+      color: silver;
+    }
+  }
+}
+/******* Diff *******/
+
+/******* Git commit *******/
+atom-text-editor .lines .git-commit, atom-text-editor::shadow .lines .git-commit {
+  .markup {
+    &.changed {
+      color: @orange;
+    }
+
+    &.inserted {
+      color: @dark-green;
+    }
+
+    &.deleted {
+      color: @dark-red;
+    }
+  }
+
+  &.embedded .markup {
+    color: white;
+  }
+}
+/******* Git commit *******/
+
+/******* HTML-ish *******/
+atom-text-editor, atom-text-editor::shadow {
+  &[data-grammar="text html basic"],
+  &[data-grammar="text html erb"],
+  &[data-grammar="text haml"],
+  &[data-grammar="text xml"] {
+    background-color: @dark-background;
+  }
+}
+
+atom-text-editor .lines, atom-text-editor::shadow .lines {
+  .text.html, .text.haml, .text.xml {
+    color: @magenta;
+
+    .tag, .embedded {
+      .definition.tag {
+        color: @blue;
+      }
+    }
+
+    .embedded {
+      color: white;
+    }
+
+    .entity.name.tag, .entity.attribute-name {
+      color: @pink;
+      text-decoration: none;
+    }
+  }
+
+  .text.html.erb {
+    .embedded.line.erb {
+      & > .source.ruby {
+        background-color: fade(lighten(@background, 10%), 50%);
+      }
+
+      .punctuation.erb {
+        color: @blue;
+      }
+    }
+  }
+
+  .text.haml {
+    .source.embedded {
+      color: @blue;
+
+      .entity.name.tag {
+        color: @dark-orange;
+      }
+    }
+
+    .line.ruby {
+      .source.ruby {
+        color: white;
+
+        &.embedded {
+          background-color: fade(lighten(@background, 10%), 50%);
+        }
+
+        .viewhelpers.rails, .actionpack.rails {
+          color: @red;
+        }
+      }
+    }
+  }
+}
+/******* HTML-ish *******/
+
+/******* YAML *******/
+atom-text-editor .lines .source.yaml, atom-text-editor::shadow .lines .source.yaml {
+  .tag.name.yaml {
+    color: @pink;
+    text-decoration: none;
+
+    .punctuation.key-value {
+      color: @blue;
+    }
+  }
+}
+/******* YAML *******/
+
+/******* Coffeescript & JS *******/
+.source.coffee, .source.js {
+  .meta {
+    .storage.type.class {
+      color: @dark-orange;
+    }
+
+    .name.class {
+      color: @blue-sea;
+    }
+
+    &.function {
+      .storage.type.function {
+        color: @bright-cyan;
+      }
+    }
+  }
+
+  .support.function {
+    color: @bright-cyan;
+  }
+
+  .entity.name.instance.type {
+    color: @blue-sea;
+  }
+
+  .storage.type.function {
+    color: @blue;
+  }
+
+  .instance.constructor .keyword.new {
+    color: @dark-orange;
+  }
+
+  .keyword.operator {
+    color: @blue;
+  }
+
+  .string.double.quoted {
+    .source.coffee.embedded {
+      color: white;
+    }
+  }
+}
+/******* Coffeescript & JS *******/
+
+/******* Markdown *******/
+atom-text-editor[data-grammar="source gfm"],
+atom-text-editor::shadow[data-grammar="source gfm"] {
+  background-color: @dark-background;
+}
+
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+
+  &.heading {
+    color: @dark-orange;
+
+    &.heading-1, &.heading-2 {
+      text-decoration: underline;
+      text-decoration: blink;
+    }
+  }
+
+  &.raw {
+    font-family: monospace;
+    background: fade(white, 40%);
+    border: solid 1px transparent;
+    color: white;
+
+    .support {
+      -webkit-text-stroke: 2px white;
+    }
+  }
+
+  &.bold {
+    color: @orange;
+    -webkit-text-stroke: 1px @orange;
+  }
+}
+
+.source.gfm {
+  .comment.hr {
+    &:after {
+      content: '                                                                             ';
+    }
+
+    &, &:after {
+      border-bottom: 1px solid @gray;
+    }
+  }
+
+  .quote {
+    &.comment {
+      color: @cyan;
+    }
+    &.support {
+      color: @green;
+    }
+  }
+
+  .link {
+    color: @yellow-light;
+
+    .entity {
+      color: darken(saturate(@blue, 40%), 10%);
+    }
+
+    .underline {
+      text-decoration: underline;
+      color: @blue;
+    }
+  }
+}
+/******* Markdown *******/
+
+/******* Cucumber *******/
+atom-text-editor[data-grammar="text gherkin feature"],
+atom-text-editor::shadow[data-grammar="text gherkin feature"] {
+  background-color: @dark-background;
+}
+
+.text.gherkin {
+  color: white;
+
+  .cucumber {
+    background-color: transparent;
+  }
+
+  .cucumber.table {
+    color: @blue;
+  }
+}

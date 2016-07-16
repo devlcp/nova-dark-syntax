@@ -1,0 +1,31 @@
+{
+  "name": "nova-dark-syntax",
+  "theme": "syntax",
+  "version": "0.2.0",
+  "description": "The Nova Dark, ported to the Atom editor.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devlcp/nova-dark-atom"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "readme": "# Nova Dark theme.\n\n![Screenshot 1]()\n![Screenshot 2]()\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/devlcp/nova-dark-atom/issues"
+  },
+  "homepage": "https://github.com/devlcp/nova-dark-atom#readme",
+  "_id": "nova-dark-syntax@0.2.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}
