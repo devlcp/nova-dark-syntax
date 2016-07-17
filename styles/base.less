@@ -61,6 +61,13 @@ atom-text-editor::shadow .search-results .marker .region {
   border: 1px solid @syntax-result-marker-color;
 }
 
+.bracket-matcher .region {
+  >.punctuation {
+    font-weight: bold;
+    color: @yellow;
+  }
+}
+
 atom-text-editor .search-results .marker.current-result .region,
 atom-text-editor::shadow .search-results .marker.current-result .region {
   border: 1px solid @syntax-result-marker-color-selected;
@@ -146,6 +153,17 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
   }
 }
 
+.property-name {
+  &.css {
+      color: @blue;
+
+      &.constant, &.numeric {
+        color: @orange;
+      }
+  }
+
+}
+
 .variable {
   color: @yellow-light;
 
@@ -210,7 +228,18 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
   }
 }
 
+.value{
+  .json{
+    color: @yellow-light;
+  }
+  .punctuation{
+    color: @very-light-gray;
+  }
+}
+
 .punctuation {
+  color: @very-light-gray;
+
   &.definition {
     &.string {
       color: @orange;
@@ -287,10 +316,10 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
   }
 
   &.other.attribute-name {
-    color: @blue-sea;
+    color: @red-light;
 
     &.id {
-      color: @blue;
+      color: @red;
       font-weight: bold;
     }
   }
