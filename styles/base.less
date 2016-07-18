@@ -62,7 +62,7 @@ atom-text-editor::shadow .search-results .marker .region {
 }
 
 .bracket-matcher .region {
-  border-bottom: 4px dashed lime;
+  border-bottom: 2px solid lime;
   background-color: @white-transparent;
 }
 
@@ -218,7 +218,7 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
     color: @light-gray;
 
     & > .punctuation {
-      color: @light-gray;
+      color: @very-light-gray;
     }
 
     .embedded.ruby {
@@ -278,6 +278,10 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
       color: @blue;
     }
 
+    &.punctuation {
+      color: @very-light-gray;
+    }
+
     &.variable {
       color: white;
     }
@@ -322,6 +326,10 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
 
   &.other.attribute-name {
     color: @red-light;
+
+    &.pseudo-class {
+      color: @blue-sea;
+    }
 
     &.id {
       color: @red;
@@ -385,7 +393,7 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
   }
 
   &.heading .punctuation.definition.heading {
-    color: @blue;
+    color: @very-light-gray;
   }
 
   &.inserted {
@@ -486,17 +494,17 @@ atom-text-editor, atom-text-editor::shadow {
   &[data-grammar="text html erb"],
   &[data-grammar="text haml"],
   &[data-grammar="text xml"] {
-    background-color: @dark-background;
+    background-color: @background;
   }
 }
 
 atom-text-editor .lines, atom-text-editor::shadow .lines {
   .text.html, .text.haml, .text.xml {
-    color: @magenta;
+    color: @very-light-gray;
 
     .tag, .embedded {
       .definition.tag {
-        color: @blue;
+        color: @very-light-gray;
       }
     }
 
@@ -504,10 +512,30 @@ atom-text-editor .lines, atom-text-editor::shadow .lines {
       color: white;
     }
 
-    .entity.name.tag, .entity.attribute-name {
-      color: @pink;
+    .entity.name.tag {
+      color: @green;
       text-decoration: none;
+
+      &.css {
+        color: @yellow-light;
+      }
     }
+
+    .entity.attribute-name {
+
+      &.pseudo-class {
+        color: @blue-sea;
+      }
+
+      &.class {
+        color: @red-light;
+      }
+
+      &.id {
+        color: @red;
+      }
+    }
+
   }
 
   .text.html.erb {
@@ -517,7 +545,7 @@ atom-text-editor .lines, atom-text-editor::shadow .lines {
       }
 
       .punctuation.erb {
-        color: @blue;
+        color: @very-light-gray;
       }
     }
   }
@@ -555,7 +583,7 @@ atom-text-editor .lines .source.yaml, atom-text-editor::shadow .lines .source.ya
     text-decoration: none;
 
     .punctuation.key-value {
-      color: @blue;
+      color: @very-light-gray;
     }
   }
 }
