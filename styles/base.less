@@ -62,10 +62,8 @@ atom-text-editor::shadow .search-results .marker .region {
 }
 
 .bracket-matcher .region {
-  >.punctuation {
-    font-weight: bold;
-    color: @yellow;
-  }
+  border-bottom: 4px dashed lime;
+  background-color: @white-transparent;
 }
 
 atom-text-editor .search-results .marker.current-result .region,
@@ -132,8 +130,15 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
     color: @yellow;
   }
 
+  &.css{
+    &.numeric {
+      color: @orange;
+    }
+  }
+
+
   &.numeric {
-    color: @yellow;
+    color: @red;
   }
 
   &.other.color {
@@ -156,10 +161,6 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
 .property-name {
   &.css {
       color: @blue;
-
-      &.constant, &.numeric {
-        color: @orange;
-      }
   }
 
 }
@@ -313,6 +314,10 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
   &.name.tag {
     color: @red;
     text-decoration: underline;
+
+    &.css {
+      color: @yellow-light;
+    }
   }
 
   &.other.attribute-name {
