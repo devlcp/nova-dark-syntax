@@ -229,21 +229,16 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
   }
 }
 
-.value{
-  .json{
-    color: @yellow-light;
-  }
-  .punctuation{
-    color: @very-light-gray;
-  }
-}
-
 .punctuation {
   color: @very-light-gray;
 
   &.definition {
     &.string {
       color: @orange;
+
+      &.begin, &.end {
+        color: @very-light-gray;
+      }
     }
 
     &.parameters, &.array {
