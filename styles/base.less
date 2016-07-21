@@ -634,16 +634,25 @@ atom-text-editor .lines .source.yaml, atom-text-editor::shadow .lines .source.ya
     color: @blue-sea;
   }
 
-  .storage.type.function {
+  .storage.type.function, .storage.type.var {
     color: @blue;
+    font-style: italic;
   }
 
   .instance.constructor .keyword.new {
     color: @dark-orange;
   }
 
+  .keyword.control {
+    color: @red-light;
+  }
+
   .keyword.operator {
-    color: @blue;
+    color: @very-light-gray;
+
+    &.typeof {
+      color: @yellow
+    }
   }
 
   .string.double.quoted {
