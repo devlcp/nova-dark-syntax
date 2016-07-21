@@ -11,7 +11,7 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "readme": "# Nova Dark theme.\n\n![Screenshot 1](https://k60.kn3.net/BA131CAC4.png)\n![Screenshot 2](https://k61.kn3.net/E3EDC1134.png)\n",
+  "readme": "# Nova Dark theme.\n\n## CSS\n![Screenshot 1](https://k60.kn3.net/BA131CAC4.png)\n ## JavaScript\n![Screenshot 2](https://k61.kn3.net/E3EDC1134.png)\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/devlcp/nova-dark-atom/issues"
