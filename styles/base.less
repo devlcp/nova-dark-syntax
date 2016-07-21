@@ -80,6 +80,19 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
   }
 }
 
+.source.json {
+  .meta.structure.dictionary.json, .meta.structure.array.json {
+    & > .value.json > .string.quoted.json,
+    & > .value.json > .string.quoted.json > .punctuation {
+      color: @yellow-light;
+    }
+
+    & > .constant.language.json {
+      color: @yellow-light;
+    }
+  }
+}
+
 .entity {
   &.name.type {
     color: @blue-sea;
@@ -412,8 +425,11 @@ atom-text-editor[mini] .scroll-view,
 atom-text-editor::shadow[mini] .scroll-view {
   padding-left: 1px;
 }
-
-/******* Diff *******/
+/*
+    +-------------------------|
+    |           Diff          |
+    |-------------------------+
+*/
 .source.diff {
   float: left;
   width: 100%;
@@ -459,9 +475,11 @@ atom-text-editor::shadow[mini] .scroll-view {
     }
   }
 }
-/******* Diff *******/
-
-/******* Git commit *******/
+/*
+    +-------------------------|
+    |       Git commit        |
+    |-------------------------+
+*/
 atom-text-editor .lines .git-commit, atom-text-editor::shadow .lines .git-commit {
   .markup {
     &.changed {
@@ -481,9 +499,11 @@ atom-text-editor .lines .git-commit, atom-text-editor::shadow .lines .git-commit
     color: white;
   }
 }
-/******* Git commit *******/
-
-/******* HTML-ish *******/
+/*
+    +-------------------------|
+    |           HTML          |
+    |-------------------------+
+*/
 atom-text-editor, atom-text-editor::shadow {
   &[data-grammar="text html basic"],
   &[data-grammar="text html erb"],
@@ -569,9 +589,11 @@ atom-text-editor .lines, atom-text-editor::shadow .lines {
     }
   }
 }
-/******* HTML-ish *******/
-
-/******* YAML *******/
+/*
+    +-------------------------|
+    |           YAML          |
+    |-------------------------+
+*/
 atom-text-editor .lines .source.yaml, atom-text-editor::shadow .lines .source.yaml {
   .tag.name.yaml {
     color: @pink;
@@ -582,9 +604,11 @@ atom-text-editor .lines .source.yaml, atom-text-editor::shadow .lines .source.ya
     }
   }
 }
-/******* YAML *******/
-
-/******* Coffeescript & JS *******/
+/*
+    +-------------------------|
+    |    Coffeescript & JS    |
+    |-------------------------+
+*/
 .source.coffee, .source.js {
   .meta {
     .storage.type.class {
@@ -628,9 +652,61 @@ atom-text-editor .lines .source.yaml, atom-text-editor::shadow .lines .source.ya
     }
   }
 }
-/******* Coffeescript & JS *******/
+/*
+    +-------------------------|
+    |           JAVA          |
+    |-------------------------+
+*/
+.source.java {
+  .storage {
+    &.modifier.import {
+      color: @magenta;
+    }
 
-/******* Markdown *******/
+    &.type {
+      color: @magenta;
+    }
+  }
+}
+
+.source.java-properties {
+  .meta.key-pair {
+    color: @green;
+
+    & > .punctuation {
+      color: @very-light-gray;
+    }
+  }
+}
+/*
+    +-------------------------|
+    |          Python         |
+    |-------------------------+
+*/
+.source.python {
+  .keyword.operator.logical.python {
+    color: @yellow;
+  }
+
+  .variable.parameter {
+    color: @green;
+  }
+}
+/*
+    +-------------------------|
+    |            INI          |
+    |-------------------------+
+*/
+.source.ini {
+  .keyword.other.definition.ini {
+    color: @green;
+  }
+}
+/*
+    +-------------------------|
+    |         Markdown        |
+    |-------------------------+
+*/
 atom-text-editor[data-grammar="source gfm"],
 atom-text-editor::shadow[data-grammar="source gfm"] {
   background-color: @background;
@@ -638,6 +714,11 @@ atom-text-editor::shadow[data-grammar="source gfm"] {
 
 .source.gfm .markup {
   -webkit-font-smoothing: auto;
+  color: @very-light-gray;
+
+  &.link .entity {
+    color: @blue-sea;
+  }
 
   &.heading {
     color: @dark-orange;
@@ -698,16 +779,18 @@ atom-text-editor::shadow[data-grammar="source gfm"] {
     }
   }
 }
-/******* Markdown *******/
-
-/******* Cucumber *******/
+/*
+    +-------------------------|
+    |         Cucumber        |
+    |-------------------------+
+*/
 atom-text-editor[data-grammar="text gherkin feature"],
 atom-text-editor::shadow[data-grammar="text gherkin feature"] {
   background-color: @background;
 }
 
 .text.gherkin {
-  color: white;
+  color: @very-light-gray;
 
   .cucumber {
     background-color: transparent;
