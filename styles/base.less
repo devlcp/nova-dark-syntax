@@ -80,19 +80,6 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
   }
 }
 
-.source.json {
-  .meta.structure.dictionary.json, .meta.structure.array.json {
-    & > .value.json > .string.quoted.json,
-    & > .value.json > .string.quoted.json > .punctuation {
-      color: @yellow-light;
-    }
-
-    & > .constant.language.json {
-      color: @yellow-light;
-    }
-  }
-}
-
 .entity {
   &.name.type {
     color: @blue-sea;
@@ -155,7 +142,7 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
   }
 
   &.other.color {
-    color: @cyan;
+    color: @blue-sea;
   }
 
   &.other.symbol {
@@ -225,8 +212,11 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
   &.other.link {
     color: @red;
   }
-
-  /* backtick */
+  /*
+      +-------------------------|
+      |         Backtick        |
+      |-------------------------+
+  */
   &.interpolated.ruby:not(.quoted):not(.regexp) {
     color: @light-gray;
 
@@ -302,7 +292,7 @@ atom-text-editor::shadow .search-results .marker.current-result .region {
   }
 
   &.function  {
-    color: @cyan;
+    color: @blue-sea;
 
     &.any-method {
       color: @blue;
@@ -606,6 +596,23 @@ atom-text-editor .lines .source.yaml, atom-text-editor::shadow .lines .source.ya
 }
 /*
     +-------------------------|
+    |           JSON          |
+    |-------------------------+
+*/
+.source.json {
+  .meta.structure.dictionary.json, .meta.structure.array.json {
+    & > .value.json > .string.quoted.json,
+    & > .value.json > .string.quoted.json > .punctuation {
+      color: @yellow-light;
+    }
+
+    & > .constant.language.json {
+      color: @yellow-light;
+    }
+  }
+}
+/*
+    +-------------------------|
     |    Coffeescript & JS    |
     |-------------------------+
 */
@@ -621,13 +628,13 @@ atom-text-editor .lines .source.yaml, atom-text-editor::shadow .lines .source.ya
 
     &.function {
       .storage.type.function {
-        color: @bright-cyan;
+        color: @blue;
       }
     }
   }
 
   .support.function {
-    color: @bright-cyan;
+    color: @blue;
   }
 
   .entity.name.instance.type {
@@ -768,7 +775,7 @@ atom-text-editor::shadow[data-grammar="source gfm"] {
 
   .quote {
     &.comment {
-      color: @cyan;
+      color: @blue-sea;
     }
     &.support {
       color: @green;
